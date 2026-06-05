@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone Pro - متجر الألعاب الاحترافي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <h1>Game<span>Zone</span> <span class="pro-badge">PRO</span></h1>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navLinks">
+                    <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#products" class="nav-link"><i class="fas fa-gamepad"></i> الألعاب</a></li>
+                    <li><a href="#platforms" class="nav-link"><i class="fas fa-desktop"></i> المنصات</a></li>
+                    <li><a href="#about" class="nav-link"><i class="fas fa-trophy"></i> عنّا</a></li>
+                    <li id="authButtonContainer"></li>
+                    <li class="cart-icon">
+                        <a href="#" id="cartToggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-animation"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">🎮 أفضل متجر ألعاب في الشرق الأوسط</span>
+                <h1>استمتع <span class="gradient-text">بتجربة ألعاب</span> لا تُنسى</h1>
+                <p>أحدث وأقوى الألعاب لـ PS5, PS4, PC بأفضل الأسعار وخصومات تصل إلى 50%</p>
+                
+                <div class="platform-icons">
+                    <div class="platform-icon">
+                        <i class="fab fa-playstation"></i>
+                        <span>PS5</span>
+                    </div>
+                    <div class="platform-icon">
+                        <i class="fab fa-playstation"></i>
+                        <span>PS4</span>
+                    </div>
+                    <div class="platform-icon">
+                        <i class="fab fa-windows"></i>
+                        <span>PC</span>
+                    </div>
+                    <div class="platform-icon">
+                        <i class="fas fa-tv"></i>
+                        <span>4K</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary btn-glow">
+                        <i class="fas fa-rocket"></i> ابدأ المغامرة الآن
+                    </a>
+                    <a href="#platforms" class="btn btn-outline">
+                        <i class="fas fa-play-circle"></i> استعرض الألعاب
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-number" id="gamesCount">0</span>
+                        <span class="stat-label">لعبة</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number" id="usersCount">0</span>
+                        <span class="stat-label">لاعب</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">دعم</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card card-1">
+                    <i class="fab fa-playstation"></i>
+                    <span>PS5</span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fab fa-windows"></i>
+                    <span>PC</span>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-gamepad"></i>
+                    <span>4K</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Filter -->
+    <section class="platform-filter" id="platforms">
+        <div class="container">
+            <h2 class="section-title">اختر <span class="gradient-text">منصتك</span></h2>
+            <div class="platform-buttons">
+                <button class="platform-btn active" data-platform="all">
+                    <i class="fas fa-globe"></i> الكل
+                </button>
+                <button class="platform-btn" data-platform="ps5">
+                    <i class="fab fa-playstation"></i> PlayStation 5
+                </button>
+                <button class="platform-btn" data-platform="ps4">
+                    <i class="fab fa-playstation"></i> PlayStation 4
+                </button>
+                <button class="platform-btn" data-platform="pc">
+                    <i class="fab fa-windows"></i> PC / Windows
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section" id="products">
+        <div class="container">
+            <h2 class="section-title">أحدث <span class="gradient-text">الألعاب</span></h2>
+            <div class="products-grid" id="productsGrid"></div>
+            <div class="load-more" id="loadMoreBtn">
+                <button class="btn btn-outline">
+                    <i class="fas fa-sync-alt"></i> تحميل المزيد
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">لماذا <span class="gradient-text">GameZone Pro</span>؟</h2>
+            <div class="about-content">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>تحميل فوري</h3>
+                        <p>بعد الشراء مباشرة</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>ضمان شامل</h3>
+                        <p>30 يوم استرجاع</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>دعم فني</h3>
+                        <p>على مدار الساعة</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <h3>أفضل الأسعار</h3>
+                        <p>خصومات تصل 50%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content auth-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-circle"></i> حسابي</h3>
+                <button class="close-modal" id="closeAuthModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" class="auth-form active">
+                    <h4>تسجيل الدخول</h4>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="loginEmail" class="form-control" placeholder="البريد الإلكتروني" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="loginPassword" class="form-control" placeholder="كلمة المرور" required>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe"> تذكرني
+                        </label>
+                        <a href="#" id="forgotPasswordLink" class="forgot-link">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">تسجيل الدخول</button>
+                    <div class="auth-divider">
+                        <span>أو</span>
+                    </div>
+                    <p class="auth-switch">ليس لديك حساب؟ <a href="#" id="showRegister">إنشاء حساب جديد</a></p>
+                </form>
+
+                <form id="registerForm" class="auth-form">
+                    <h4>إنشاء حساب جديد</h4>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="registerName" class="form-control" placeholder="الاسم الكامل" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="registerEmail" class="form-control" placeholder="البريد الإلكتروني" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="registerPhone" class="form-control" placeholder="رقم الهاتف (اختياري)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="registerPassword" class="form-control" placeholder="كلمة المرور" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="تأكيد كلمة المرور" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">إنشاء حساب</button>
+                    <div class="auth-divider">
+                        <span>أو</span>
+                    </div>
+                    <p class="auth-switch">لديك حساب بالفعل؟ <a href="#" id="showLogin">تسجيل الدخول</a></p>
+                </form>
+
+                <form id="forgotForm" class="auth-form">
+                    <h4>استعادة كلمة المرور</h4>
+                    <p style="color: var(--text-gray); margin-bottom: 20px; text-align: center;">أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة التعيين</p>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="forgotEmail" class="form-control" placeholder="البريد الإلكتروني" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">إرسال رابط الاستعادة</button>
+                    <div class="auth-divider">
+                        <span>أو</span>
+                    </div>
+                    <p class="auth-switch"><a href="#" id="backToLogin">العودة لتسجيل الدخول</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content payment-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-credit-card"></i> إتمام الدفع</h3>
+                <button class="close-modal" id="closePaymentModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-summary" id="paymentSummary"></div>
+                
+                <div class="payment-methods">
+                    <h4>طرق الدفع</h4>
+                    <div class="payment-methods-grid">
+                        <div class="payment-method active" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>بطاقة ائتمان</span>
+                        </div>
+                        <div class="payment-method" data-method="vodafone">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>فودافون كاش</span>
+                        </div>
+                        <div class="payment-method" data-method="instapay">
+                            <i class="fas fa-university"></i>
+                            <span>إنستاباي</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="cardPaymentForm" class="payment-form active">
+                    <div class="form-group">
+                        <label>رقم البطاقة</label>
+                        <div class="card-input-wrapper">
+                            <i class="fas fa-credit-card"></i>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>تاريخ الانتهاء</label>
+                            <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" class="form-control" id="cardCvv" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>اسم صاحب البطاقة</label>
+                        <input type="text" class="form-control" id="cardName" placeholder="كما هو مكتوب على البطاقة">
+                    </div>
+                </form>
+
+                <form id="vodafoneForm" class="payment-form">
+                    <div class="form-group">
+                        <label>رقم الهاتف (فودافون كاش)</label>
+                        <div class="input-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" class="form-control" id="vodafoneNumber" placeholder="01xxxxxxxxx">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>الرقم السري</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" class="form-control" id="vodafonePin" placeholder="أدخل الرقم السري">
+                        </div>
+                    </div>
+                </form>
+
+                <form id="instapayForm" class="payment-form">
+                    <div class="form-group">
+                        <label>البريد الإلكتروني (إنستاباي)</label>
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" class="form-control" id="instapayEmail" placeholder="example@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف المرتبط</label>
+                        <div class="input-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" class="form-control" id="instapayPhone" placeholder="01xxxxxxxxx">
+                        </div>
+                    </div>
+                </form>
+
+                <div class="payment-total">
+                    <span>المبلغ الإجمالي</span>
+                    <span class="payment-total-amount" id="paymentTotalAmount">0 ج.م</span>
+                </div>
+
+                <button class="btn btn-primary btn-block" id="processPaymentBtn">
+                    <i class="fas fa-check-circle"></i> تأكيد الدفع
+                </button>
+                <p class="payment-note">🔒 بوابة دفع تجريبية آمنة - لأغراض العرض فقط</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> سلة الشراء</h3>
+            <button class="close-cart" id="closeCartBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span class="total-price" id="cartTotal">0 ج.م</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">
+                <i class="fas fa-credit-card"></i> إتمام الشراء
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText"></span>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+        <!-- Download Modal -->
+    <div class="modal" id="downloadModal">
+        <div class="modal-content download-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-download"></i> تحميل الألعاب</h3>
+                <button class="close-modal" id="closeDownloadModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="download-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>تم الدفع بنجاح!</h4>
+                    <p>يمكنك الآن تحميل الألعاب التالية:</p>
+                </div>
+                <div id="downloadLinksContainer" class="download-links-container">
+                    <!-- روابط التحميل ستظهر هنا -->
+                </div>
+                <div class="download-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>روابط التحميل صالحة لمدة 48 ساعة</p>
+                </div>
+                <button class="btn btn-primary btn-block" id="copyAllLinksBtn">
+                    <i class="fas fa-copy"></i> نسخ جميع الروابط
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
